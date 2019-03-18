@@ -1,8 +1,8 @@
 @import './global.css';
 
-.result {
-  width: 50%;
-  float: left;
+.resultsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .results {
@@ -20,15 +20,65 @@
   object-fit: cover;
 }
 
+.result {
+  position: relative;
+}
+
+.result button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  color: var(--colour1);
+  opacity: 0;
+}
+
+.result:hover button {
+  opacity: 1;
+}
+
+.result .fa-plus-circle {
+  font-size: 1.3rem;
+  border: 2px solid var(--colour2);
+  border-radius: 50%;
+}
+
 @media (min-width: 700px) {
-  .result {
-    width: calc(100% / 3);
+  .resultsContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
+  .result button {
+    top: 10px;
+    right: 20px;
+  }
+
+  .results nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .links {
+    width: 50%;
+    padding-top: 30px;
+  }
+
+  .links .buttonStyle {
+    width: calc(50% - 10px);
+    float: left;
+    line-height: 1.6;
+  }
+
+  .links .buttonStyle:nth-child(1) {
+    margin-right: 20px;
+  }
+  
+  
 }
 
 @media (min-width: 1200px) {
-  .result {
-    width: 25%;
+  .resultsContainer {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

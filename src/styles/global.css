@@ -4,7 +4,7 @@
   --colour3: #e6e0d0;
   --colour4: #f8f166;
 
-  --headingFont: 'Playfair Display', serif;
+  --headingFont: 'Righteous', serif;
   --headingFontWeight: 700;
   --bodyFont: 'Roboto', sans-serif;
 }
@@ -40,10 +40,17 @@ a {
 .buttonStyle {
   border: 1px solid var(--colour2);
   color: var(--colour2);
-  padding: 3px 40px;
+  padding: 10px;
   border-radius: 20px;
-  margin: 25px 0;
+  display: inline-block;
   background: var(--colour1);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 700px) {
+  
 }
 
 .buttonStyle:hover {
@@ -52,7 +59,7 @@ a {
 }
 
 .mojal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 80%;
@@ -66,7 +73,7 @@ a {
 }
 
 .mask {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -88,4 +95,87 @@ a:focus,
 button:focus,
 .specificList select:focus {
   border: 1px solid var(--colour4);
+}
+
+/* CSS TOOLTIP STYLES */
+
+[tooltip]{
+    position:relative;
+}
+[tooltip]::before {
+    content: "";
+    position: absolute;
+    top:-6px;
+    left:50%;
+    transform: translateX(-50%);
+    border-width: 4px 6px 0 6px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.7) transparent transparent     transparent;
+    z-index: 100;
+    opacity: 0;
+}
+[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    left:50%;
+    top:-6px;
+    transform: translateX(-50%)   translateY(-100%);
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    color: #fff;
+    padding:4px 2px;
+    font-size: 0.8rem;
+    min-width: 80px;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* TOOLTIP POSITION STYLES */
+
+[tooltip-position='left']::before{
+    left:0%;
+    top:50%;
+    margin-left:-12px;
+    transform:translatey(-50%) rotate(-90deg) 
+}
+[tooltip-position='top']::before{
+    left:50%;
+}
+[tooltip-position='bottom']::before{
+    top:100%;
+    margin-top:8px;
+    transform: translateX(-50%) translatey(-100%) rotate(-180deg)
+}
+[tooltip-position='right']::before{
+    left:100%;
+    top:50%;
+    margin-left:1px;
+    transform:translatey(-50%) rotate(90deg)
+}
+[tooltip-position='left']::after{
+    left:0%;
+    top:50%;
+    margin-left:-8px;
+  transform: translateX(-100%)   translateY(-50%);
+}
+[tooltip-position='top']::after{
+    left:50%;
+}
+[tooltip-position='bottom']::after{
+  top:100%;
+  margin-top:8px;
+  transform: translateX(-50%) translateY(0%);
+}
+[tooltip-position='right']::after{
+    left:100%;
+    top:50%;
+    margin-left:8px;
+    transform: translateX(0%)   translateY(-50%);
+}
+
+
+/* Show on Hover */
+[tooltip]:hover::after,[tooltip]:hover::before {
+    opacity:1
 }

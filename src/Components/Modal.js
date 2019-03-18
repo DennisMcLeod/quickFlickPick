@@ -119,6 +119,7 @@ class Modal extends Component {
         this.setState({
           name: ""
         });
+        this.props.handleClose("showCreate");
       });
     } else {
       this.emptyListNameAlert();
@@ -135,7 +136,7 @@ class Modal extends Component {
             <FontAwesomeIcon
               className="modalClose"
               icon="times-circle"
-              onClick={this.props.handleClose}
+              onClick={() => {this.props.handleClose('showCreate')}}
             />
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="text" className="visuallyHidden">

@@ -31,3 +31,13 @@
 .mojal .buttonStyle:hover {
   background: var(--colour2);
 }
+
+.mojal .buttonStyle {
+  margin-top: 20px;
+}
+
+@media (min-width: 700px) {
+  .mojal .buttonStyle {
+    width: 300px;
+  }
+}

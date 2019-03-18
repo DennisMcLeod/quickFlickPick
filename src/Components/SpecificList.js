@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import NatLangForm from "./NatLangForm.js";
 import Footer from "./Footer.js";
 import "../styles/specificList.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faMinusCircle);
 
 class SpecificList extends Component {
   constructor() {
@@ -90,31 +95,36 @@ class SpecificList extends Component {
             </p>
           </div>
         ) : (
-          <div className="movieList clearfix">
+          <div className="movieList">
             <div className="wrapper">
               <NatLangForm movieInfo={this.state.listMovies} />
             </div>
-            {this.state.listMovies.map(movieId => {
-              let url = `http://image.tmdb.org/t/p/w${this.state.imageSize}//${
-                movieId.poster
-              }`;
-              return (
-                <div className="poster">
-                  <img src={url} alt={`Poster of ${movieId.name}`} />
-                  <div className="overlay">
-                    <Link to={`/movies/${movieId.id}`}>More Info</Link>
-                    <button
-                      className="removeButton"
-                      onClick={() => {
-                        this.removeMovie(movieId.id);
-                      }}
-                    >
-                      Remove movie from list
-                    </button>
+            <div className="listContainer">
+              {this.state.listMovies.map(movieId => {
+                let url = `http://image.tmdb.org/t/p/w${this.state.imageSize}//${
+                  movieId.poster
+                }`;
+                return (
+                  <div className="poster">
+                    <img src={url} alt={`Poster of ${movieId.name}`} />
+                    <div className="overlay">
+                      <Link to={`/movies/${movieId.id}`}>More Info</Link>
+                      <button
+                        className="removeButton"
+                        tooltip="Remove movie"
+                        tooltip-position="bottom"
+                        onClick={() => {
+                          this.removeMovie(movieId.id);
+                        }}
+                      >
+                        <FontAwesomeIcon icon="minus-circle"/>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            
+            </div>
           </div>
         )}
         <Footer />

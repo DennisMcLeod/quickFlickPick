@@ -1,13 +1,14 @@
 import firebase from 'firebase';
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyC6pZAeJKUCiH2bKhZ54eh4Ffhq4hL-r5U",
-    authDomain: "quick-flick-picker.firebaseapp.com",
-    databaseURL: "https://quick-flick-picker.firebaseio.com",
-    projectId: "quick-flick-picker",
-    storageBucket: "quick-flick-picker.appspot.com",
-    messagingSenderId: "13878768471"
+    apiKey: "AIzaSyB2G2Io-AxiS1jx1YQdEQSSb9B4uWxHyDs",
+    authDomain: "test-fc658.firebaseapp.com",
+    databaseURL: "https://test-fc658.firebaseio.com",
+    projectId: "test-fc658",
+    storageBucket: "test-fc658.appspot.com",
+    messagingSenderId: "649857958611"
 };
 firebase.initializeApp(config);
+
 
 export default firebase
