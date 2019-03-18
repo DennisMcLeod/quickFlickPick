@@ -49,10 +49,6 @@ a {
   margin-bottom: 15px;
 }
 
-@media (min-width: 700px) {
-  
-}
-
 .buttonStyle:hover {
   background-color: var(--colour2);
   color: var(--colour1);
