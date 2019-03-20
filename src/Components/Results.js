@@ -218,19 +218,49 @@ class Results extends Component {
                 let url = `http://image.tmdb.org/t/p/w${
                   this.state.imageSize
                 }//${movie.poster_path}`;
-                return (
-                  <Tilt className="Tilt" options={{ max: 25, scale: 1 }}>
-                    <div key={movie.id} className="result Tilt-inner">
-                      <button 
-                        tooltip="Add to list" tooltip-position="bottom"
-                        onClick={() => {this.getMovieInfo(movie.id)}}
-                        ><FontAwesomeIcon  icon="plus-circle"/></button>
-                      <Link to={`/movies/${movie.id}`}>
-                        <img src={url} alt={`Poster of ${movie.title}`} />
-                      </Link>
+                // LOAD IMAGES WITHOUT TILT ON TABLET/MOBILE
+                if (this.state.imageSize === '342') {
+                  return (
+                    <div>
+                      <div
+                        key={movie.id}
+                        className="result Tilt-inner"
+                      >
+                        <button
+                          tooltip="Add to list"
+                          tooltip-position="bottom"
+                          onClick={() => {
+                            this.getMovieInfo(movie.id);
+                          }}
+                        >
+                          <FontAwesomeIcon icon="plus-circle" />
+                        </button>
+                        <Link to={`/movies/${movie.id}`}>
+                          <img
+                            src={url}
+                            alt={`Poster of ${movie.title}`}
+                          />
+                        </Link>
+                      </div>
                     </div>
-                  </Tilt>
-                );
+                  );
+                } else {
+                  // LOAD IMAGES WITH TILT ON DESKTOP
+                  return (
+                    <Tilt className="Tilt" options={{ max: 25, scale: 1 }}>
+                      <div key={movie.id} className="result Tilt-inner">
+                        <button 
+                          tooltip="Add to list" tooltip-position="bottom"
+                          onClick={() => {this.getMovieInfo(movie.id)}}
+                          ><FontAwesomeIcon  icon="plus-circle"/></button>
+                        <Link to={`/movies/${movie.id}`}>
+                          <img src={url} alt={`Poster of ${movie.title}`} />
+                        </Link>
+                      </div>
+                    </Tilt>
+                  );
+
+                }
               })}
             </div>
           )}

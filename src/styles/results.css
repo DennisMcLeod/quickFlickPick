@@ -31,7 +31,7 @@
   background: transparent;
   border: none;
   color: var(--colour1);
-  opacity: 0;
+  opacity: 1;
 }
 
 .result:hover button {
@@ -48,10 +48,6 @@
   .resultsContainer {
     grid-template-columns: repeat(3, 1fr);
   }
-  
-  
-  
-  
   
   
 }
@@ -76,6 +72,9 @@
     width: calc(50% - 10px);
     float: left;
     line-height: 1.6;
+  }
+  .result button {
+    opacity: 0;
   }
   
 }
