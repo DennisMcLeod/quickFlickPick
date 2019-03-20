@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "react-firebase-daeaf"
+    "default": "react-firebase-daeaf",
+    "staging": "quick-flick-picker"
   }
 }

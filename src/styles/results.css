@@ -48,31 +48,35 @@
   .resultsContainer {
     grid-template-columns: repeat(3, 1fr);
   }
+  
+  
+  
+  
+  
+  
+}
+
+@media (min-width: 900px) {
   .result button {
     top: 10px;
     right: 20px;
   }
-
   .results nav {
     display: flex;
     justify-content: space-between;
   }
-
   .links {
     width: 50%;
     padding-top: 30px;
   }
-
+  .links .buttonStyle:nth-child(1) {
+    margin-right: 20px;
+  }
   .links .buttonStyle {
     width: calc(50% - 10px);
     float: left;
     line-height: 1.6;
   }
-
-  .links .buttonStyle:nth-child(1) {
-    margin-right: 20px;
-  }
-  
   
 }
 

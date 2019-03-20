@@ -11,6 +11,10 @@
 .mojal form {
   margin-top: 30px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mojal input[type='text'] {

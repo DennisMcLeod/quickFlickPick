@@ -1,7 +1,8 @@
 @import "./global.css";
 
-.results form {
+.filterBar form {
     margin: 25px auto 60px;
+    display: flex;
 }
 .results input[type="text"] {
     border: none;
@@ -12,6 +13,7 @@
     color: var(--colour3);
     padding: 10px 0 5px 10px;
     font-size: 1rem;
+    border-radius: 0px;
 }
 
 .results input[type="text"]::placeholder {

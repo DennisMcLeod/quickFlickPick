@@ -35,7 +35,7 @@ class FilterBar extends Component {
   render() {
     return (
       <div className="filterBar">
-        <form className="clearfix" onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <label htmlFor="userInput" className="visuallyHidden">
             Search for Movies
           </label>
